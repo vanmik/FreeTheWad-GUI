@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'DragTest2' target in the 'DragTest2' project
+//
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+#endif
