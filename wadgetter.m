@@ -31,7 +31,6 @@
 			[freethewad setLaunchPath: [[NSBundle mainBundle] pathForResource:@"freethewad" ofType:@""]];
 			[freethewad setArguments:[NSArray arrayWithObjects:[arr objectAtIndex:i],nil]];
 			[freethewad launch];
-			[freethewad release];
 		}
 	}
 	
@@ -46,7 +45,7 @@
 					  nil,
 					  // did-end selector
 					  NULL,               // no need for did-dismiss selector
-					  mainwindow,         // context info
+					  (__bridge void *)(mainwindow),         // context info
 					  @"WADs are free now.");
 	
 	
@@ -101,10 +100,10 @@
 
 	
 	
-    NSGradient* aGradient = [[[NSGradient alloc]
+    NSGradient* aGradient = [[NSGradient alloc]
 							  initWithColorsAndLocations:[NSColor whiteColor], (CGFloat)0.0,
 							  [NSColor colorWithCalibratedRed:224 green:224 blue:224 alpha:0], (CGFloat)1,
-							  nil] autorelease];
+							  nil];
 	
     [aGradient drawInBezierPath:clipShape angle:-90.0];
 }
